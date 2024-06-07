@@ -2,7 +2,7 @@
     <div>
         <header> <Navbar /> </header>
         <main> <slot> </slot> </main>
-        <footer> </footer>
+        <footer> <Footer></Footer> </footer>
     </div>
 </template>
 
