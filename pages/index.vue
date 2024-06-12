@@ -2,7 +2,7 @@
   <!-- hero -->
   <section>
     <div
-      class="flex justify- mx-0 gap-10 py-0 px-20 pt-12 pb-12 pr font-bold items-center"
+      class="flex justify-between mx-0 gap-10 py-0 px-20 pt-12 pb-12 pr font-bold items-center"
     >
       <div>
         <img src="../assets/img/shop_333-removebg-preview.png" alt="" />
@@ -36,10 +36,28 @@
         <h1>POPLAR PRODUCTS</h1>
       </diV>
       <div class="grid grid-cols-5 gap-16">
-        <card />
         <!--  -->
         <div
-          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md  px-12 w-60 py-12 my-20 bg-white"
+          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md hover:scale-105 duration-200 ease-in -outline-offset-1 px-12 w-60 py-12 my-20 bg-white"
+        >
+          <img
+            class=""
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0mqjLdQvSEAAOc_j_jRgC2J0ILW9gl5pxhw&s"
+            alt=""
+          />
+          <h1 class="font-bold">Kids' Backpacks | Lands' End</h1>
+          <div>
+            <p class="text-gray-400">Price: $ 300.85</p>
+          </div>
+          <div>
+            <button class="text-green-400">View Detalis</button>
+          </div>
+        </div>
+        <!--  -->
+
+        <!--  -->
+        <div
+          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md hover:scale-105 duration-200 ease-in -outline-offset-1 px-12 w-60 py-12 my-20 bg-white"
         >
           <img
             class=""
@@ -59,7 +77,7 @@
         </div>
         <!--  -->
         <div
-          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md  px-12 w-60 py-12 my-20 bg-white"
+          class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
           <img
             class=""
@@ -76,7 +94,7 @@
         </div>
         <!--  -->
         <div
-          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md  px-12 w-60 py-12 my-20 bg-white"
+          class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
           <img
             class=""
@@ -93,7 +111,7 @@
         </div>
         <!--  -->
         <div
-          class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md  px-12 w-60 py-12 my-20 bg-white"
+          class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
           <img
             class=""
@@ -116,8 +134,54 @@
     </div>
   </section>
   <!-- service -->
+
+  <!-- popular produt -->
+  <section>
+    <div class="mx-0 py-20 container flex flex-col gap-12 font-medium px-20">
+      <h1 class="font-semibold text-center text-5xl">
+        popular products By categorys
+      </h1>
+      <div class="flex justify-center gap-5 pb-8">
+        <button
+          class="text-white bg-slate-700 px-4 py-2 hover:scale-105 duration-200 ease-in -outline-offset-1 hover:bg-lime-500 rounded-xl font-bold"
+          v-for="fox in categories"
+          :key="fox" @click="changeUrl(fox)">
+          {{ fox }}
+          </button>
+          </div>
+          </div>
+            <div class="grid mx-0 py-10 px-10 container grid-cols-4 gap-6">
+              <Card
+                v-for="product in jewels"
+                :key="product.id"
+                :props="product"/>
+            </div>
+  </section>
+  <!-- popular produt -->
 </template>
 
-<script setup></script>
+<script setup>
+import { BaseTransitionPropsValidators } from 'vue';
+
+
+// Fatch categorites\
+const { data: categories } = await useFetch(
+  "https://fakestoreapi.com/products/categories"
+);
+
+// Fetch jewels
+const url = ref("https://fakestoreapi.com/products/category/jewelery");
+const { data: jewels } = await useFetch(url);
+
+  // change url
+function changeUrl(fox) {
+  url.value = `https://fakestoreapi.com/products/category/${fox}`
+}
+
+useSeoMeta({
+  title: "Aspeezee_store"
+})
+
+</script>
 
 <style scoped></style>

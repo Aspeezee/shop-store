@@ -9,7 +9,7 @@
       </div>
       <div class="flex gap-10">
         <div><nuxt-link to="/">Home</nuxt-link></div>
-        <div><nuxt-link to="/product">products</nuxt-link></div>
+        <div><nuxt-link to="/products">products</nuxt-link></div>
       </div>
       <div>
         <nuxt-link to="">login</nuxt-link>
