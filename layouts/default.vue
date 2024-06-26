@@ -1,15 +1,16 @@
 <template>
     <div>
-        <header> <Navbar /> </header>
-        <main> <slot> </slot> </main>
-        <footer> <Footer></Footer> </footer>
+        <header> <navbar /> </header>
+        <main> 
+            <slot/> 
+        </main>
+        <footer> 
+            <Footer/> 
+        </footer>
     </div>
 </template>
 
 <script setup>
 
 </script>
-
-<style scoped>
-
-</style>
+>

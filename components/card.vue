@@ -19,6 +19,6 @@
 </template>
 
 <script setup>
-defineProps (['props'])
+defineProps(['props'])
 </script>
 <style scoped></style>

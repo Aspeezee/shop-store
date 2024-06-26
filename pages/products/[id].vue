@@ -20,12 +20,13 @@
   </div>
 </template>
 
-<script setup>
-const route = useRoute().params.id;
+ <script setup>
+// const route = useRoute().params.id;
 
-const { data: product } = await useFetch(
-  `https://fakestoreapi.com/products/${route}`
-);
+// const { data: product } = await useFetch(`https://fakestoreapi.com/products/${route}`);
+
+
+
 </script>
 
 <style scoped></style>

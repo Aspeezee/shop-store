@@ -4,7 +4,7 @@
   >
     <!--  -->
     <div v-for="fox in products" :key="fox.id">
-      <Card :props="fox"/>
+      <Card :props="fox" />
     </div>
     <!--  -->
   </div>

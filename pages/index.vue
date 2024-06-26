@@ -1,43 +1,48 @@
 <template>
-  <!-- hero -->
-  <section>
-    <div
-      class="flex justify-between mx-0 gap-10 py-0 px-20 pt-12 pb-12 pr font-bold items-center"
-    >
-      <div>
-        <img src="../assets/img/shop_333-removebg-preview.png" alt="" />
-      </div>
-      <div class="flex flex-col gap-9">
-        <div class="text-5xl">
-          <h1>
-            NO.ONE STORE IN THE <br />
-            WORLD!
-          </h1>
-        </div>
+  <div>
+    <!-- hero -->
+    <section>
+      <div
+        class="flex justify-between mx-0 gap-10 py-0 px-20 pt-12 pb-12 pr font-bold items-center"
+      >
         <div>
-          <p>
-            The best shop you can find in this world+this planet that's why you
-            should only buy in this whatever:
-          </p>
+          <img src="../assets/img/shop_333-removebg-preview.png" alt="" />
         </div>
-        <div
-          class="bg-green-700 w-24 py-2 ps-5 bode text-white rounded-2xl border-none hover:"
-        >
-          <button>Explore</button>
+        <div class="flex flex-col gap-9">
+          <div class="text-5xl">
+            <h1>
+              NO.ONE STORE IN THE <br />
+              WORLD!
+            </h1>
+          </div>
+          <div>
+            <p class="text-2xl">
+              The best shop you can find in this world+this planet that's why
+              <br />
+              you should only buy in this whatever:
+            </p>
+          </div>
+          <div>
+            <nuxt-link to="/About"
+              ><button
+                class="bg-green-700 w-24 py-3 px-5 bode text-white rounded-2xl border-none hover:"
+              >
+                Explore
+              </button></nuxt-link
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- hero -->
-  <!-- service -->
-  <section>
-    <div class="mx-0 items-center py-20 container font-medium px-20">
-      <diV class="text-center font-semibold text-5xl">
-        <h1>POPLAR PRODUCTS</h1>
-      </diV>
-      <div class="grid grid-cols-5 gap-16">
-        <!--  -->
-        <div
+    </section>
+    <!-- hero -->
+    <!-- service -->
+    <section>
+      <div class="mx-0 items-center py-20 container font-medium px-20">
+        <diV class="text-center font-semibold text-5xl">
+          <h1>POPLAR PRODUCTS</h1>
+        </diV>
+        <div class="grid grid-cols-5 gap-16">
+          <!-- <div
           class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md hover:scale-105 duration-200 ease-in -outline-offset-1 px-12 w-60 py-12 my-20 bg-white"
         >
           <img
@@ -53,9 +58,9 @@
             <button class="text-green-400">View Detalis</button>
           </div>
         </div>
-        <!--  -->
+        
 
-        <!--  -->
+        
         <div
           class="h-fit shadow-xl border-2 shadow-cyan-500/50 rounded-md hover:scale-105 duration-200 ease-in -outline-offset-1 px-12 w-60 py-12 my-20 bg-white"
         >
@@ -75,7 +80,7 @@
             <button class="text-green-400">View Detalis</button>
           </div>
         </div>
-        <!--  -->
+        
         <div
           class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
@@ -92,7 +97,7 @@
             <button class="text-green-400">View Detalis</button>
           </div>
         </div>
-        <!--  -->
+        
         <div
           class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
@@ -109,7 +114,7 @@
             <button class="text-green-400">View Detalis</button>
           </div>
         </div>
-        <!--  -->
+      
         <div
           class="h-fit shadow-xl border-2 hover:scale-105 duration-200 ease-in -outline-offset-1 shadow-cyan-500/50 rounded-md px-12 w-60 py-12 my-20 bg-white"
         >
@@ -128,60 +133,71 @@
           <div>
             <button class="text-green-400">View Detalis</button>
           </div>
-        </div>
-        <!--  -->
-      </div>
-    </div>
-  </section>
-  <!-- service -->
+        </div> -->
 
-  <!-- popular produt -->
-  <section>
-    <div class="mx-0 py-20 container flex flex-col gap-12 font-medium px-20">
-      <h1 class="font-semibold text-center text-5xl">
-        popular products By categorys
-      </h1>
-      <div class="flex justify-center gap-5 pb-8">
-        <button
-          class="text-white bg-slate-700 px-4 py-2 hover:scale-105 duration-200 ease-in -outline-offset-1 hover:bg-lime-500 rounded-xl font-bold"
-          v-for="fox in categories"
-          :key="fox" @click="changeUrl(fox)">
-          {{ fox }}
+          <Card v-for="product in productStore.five" :key="product.id" :props="product" />
+
+          <!--  -->
+        </div>
+      </div>
+    </section>
+    <!-- service -->
+
+    <!-- popular produt -->
+    <section>
+      <div class="mx-0 py-20 container flex flex-col gap-12 font-medium px-20">
+        <h1 class="font-semibold text-center text-5xl">popular products By Categorys</h1>
+        <div class="flex justify-center gap-5 pb-8">
+          <button
+            class="text-white bg-slate-700 px-4 py-2 hover:scale-105 duration-200 ease-in -outline-offset-1 hover:bg-lime-500 rounded-xl font-bold"
+            v-for="product in productStore.categories"
+            :key="product.id"
+            @click="changeUrl(product)"
+          >
+            {{ product }}
           </button>
-          </div>
-          </div>
-            <div class="grid mx-0 py-10 px-10 container grid-cols-4 gap-6">
-              <Card
-                v-for="product in jewels"
-                :key="product.id"
-                :props="product"/>
-            </div>
-  </section>
-  <!-- popular produt -->
+        </div>
+      </div>
+      <div class="grid mx-0 py-10 px-10 container grid-cols-4 gap-6">
+        <Card
+          v-for="product in productStore.jewelery"
+          :key="product.id"
+          :props="product"
+        />
+      </div>
+    </section>
+    <!-- popular produt -->
+  </div>
 </template>
 
+
+
+
+<!--  -->
+<!-- <div class="mx-0 py-20 container flex flex-col gap-12 font-medium px-20">
+        <h1 class="font-semibold text-center text-5xl">popular products By Categorys</h1>
+        <div class="flex justify-center gap-5 pb-8">   
+       
+          <Card v-for="product in productStore.bycategories" :key="product.id" :props="product" />
+       
+        </div>
+      </div> -->
+    <!--  -->
+
+    
+
 <script setup>
-import { BaseTransitionPropsValidators } from 'vue';
+import { useProductsStore } from "~/store/products";
 
-
-// Fatch categorites\
-const { data: categories } = await useFetch(
-  "https://fakestoreapi.com/products/categories"
-);
-
-// Fetch jewels
-const url = ref("https://fakestoreapi.com/products/category/jewelery");
-const { data: jewels } = await useFetch(url);
-
-  // change url
-function changeUrl(fox) {
-  url.value = `https://fakestoreapi.com/products/category/${fox}`
-}
-
+//Five ptoduct
+const productStore = useProductsStore();
+productStore.fetchFiveProducts();
+productStore.fetchCategories();
+productStore.fetchJewelery();
+// 
 useSeoMeta({
-  title: "Aspeezee_store"
-})
-
+  title: "Aspeezee_store",
+});
 </script>
 
 <style scoped></style>
